@@ -1,0 +1,35 @@
+{
+    "bridge": {
+        "name": "Homebridge 53AD",
+        "username": "0E:D7:F1:FE:53:AD",
+        "port": 51514,
+        "pin": "916-17-244",
+        "advertiser": "avahi"
+    },
+    "accessories": [],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "platform": "config"
+        },
+        {
+            "name": "Camera FFmpeg",
+            "cameras": [
+                {
+                    "name": "cam01",
+                    "videoConfig": {
+                        "source": "-re -r 6 -f video4linux2 -i /dev/video0",
+                        "maxStreams": 1,
+                        "maxWidth": 460,
+                        "maxHeight": 320,
+                        "maxFPS": 6,
+                        "vcodec": "h264_v4l2m2m",
+                        "debug": true
+                    }
+                }
+            ],
+            "platform": "Camera-ffmpeg"
+        }
+    ]
+}
